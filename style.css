@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url(img/background.jpg);
+  background-repeat: no-repeat;
+  background-size: 1300px auto;
+  background-position-x: -500px;
+  grid-template-rows: auto 1fr auto;
+}
+
+/* header */
+
+header {
+  display: block;
+  min-height: 10vh;
+  padding: 10px;
+  margin: 10px;
+}
+
+header h2 {
+  margin: 10px;
+  margin-top: 80px;
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+  font-size: 1.6em;
+  color: aliceblue;
+  text-shadow: 0 0 1px black;
+}
+
+#date {
+  margin: 10px;
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+  font-size: 0.9em;
+  color: aliceblue;
+  text-shadow: 0 0 1px black;
+}
+
+/* /header */
+
+/* main */
+
+main {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+ul {
+  list-style-type: circle;
+}
+
+/* main - taskToday */
+
+main #toToday {
+  display: flex;
+  flex-direction: column;
+  margin: 5px auto 5px;
+  width: 325px;
+  height: fit-content;
+  padding: 15px;
+  background-color: rgba(127, 127, 127, 0.3);
+  backdrop-filter: blur(6px);
+  border-radius: 10px;
+  transition: scale, backdrop-filter 0.2s;
+  box-shadow: 0 0 1px black;
+}
+
+main #toToday .heading {
+  font-size: 0.9em;
+  color: rgb(0, 94, 165);
+  margin: 10px;
+  left: 10px;
+}
+
+main #toToday ul {
+  left: 10px;
+  font-family: "LXGW WenKai TC", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+main #toToday ul li {
+  color: rgb(79, 79, 79);
+  margin: 10px;
+}
+
+main #toToday:active {
+  scale: 1.02;
+  backdrop-filter: blur(12px);
+}
+
+/* main - otherTask */
+
+main #toDo h3 {
+  margin: 10px;
+  color: white;
+}
+
+main #toDo .toDoList ul .task {
+  background-color: rgba(228, 228, 228, 0.3);
+  backdrop-filter: blur(6px);
+  border-radius: 10px;
+  margin: 5px auto;
+  padding: 10px;
+  width: 350px;
+  list-style-type: none;
+  color: rgb(208, 208, 208);
+}
+
+main #toDo .toDoList ul .task:active {
+  scale: 1.02;
+  backdrop-filter: blur(12px);
+}
+
+.taskObjektiv {
+  font-size: 1.1em;
+}
+
+.day {
+  font-size: 0.9em;
+}
+
+/* /main */
+
+/* footer */
+
+footer {
+  min-height: 8vh;
+}
+
+footer #bottomControl {
+  display: flex;
+  height: 8vh;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.089);
+  backdrop-filter: blur(10px);
+  border-radius: 2px;
+}
+
+footer #bottomControl button {
+  width: 33%;
+  height: 8vh;
+  background-color: transparent;
+  border: none;
+}
+/* /footer */
