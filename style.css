@@ -83,7 +83,11 @@ ul {
 }
 
 #homeScreen main #toToday ul {
-  left: 10px;
+  max-height: 300px;
+  list-style-position: inside;
+  overflow: visible;
+  overflow-y: scroll;
+  width: 100%;
   font-family: "LXGW WenKai TC", cursive;
   font-weight: 400;
   font-style: normal;
@@ -155,7 +159,8 @@ ul {
   margin: auto 30px;
 }
 
-#newTaskForm input {
+#newTaskForm input,
+textarea {
   margin: 10px;
   height: 40px;
   background-color: rgba(67, 67, 67, 0.3);
@@ -169,7 +174,8 @@ ul {
   transition: all 0.2s;
 }
 
-#newTaskForm input:focus:not(input[type="button"]) {
+#newTaskForm input:focus:not(input[type="button"]),
+textarea:focus {
   scale: 1.05;
   backdrop-filter: blur(16px);
 }
