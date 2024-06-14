@@ -17,54 +17,74 @@
     <title>ToDo - App</title>
   </head>
   <body>
-    <header id="header">
-      <h2>Guten Tag, Max</h2>
-      <p id="date"></p>
-    </header>
+    <div id="homeScreen">
+      <header id="header">
+        <h2>Guten Tag, Max</h2>
+        <p id="date"></p>
+      </header>
 
-    <main>
-      <div id="toToday">
-        <p class="heading">Heutige Aufgaben</p>
-        <ul>
-          <li>Einkaufen</li>
-          <li>Katze füttern</li>
-        </ul>
-      </div>
-
-      <div id="toDo">
-        <h3>Zukünftig</h3>
-        <div class="toDoList">
-          <ul>
-            <li>
-              <ul class="task">
-                <li class="taskObjektiv">Wäsche waschen</li>
-                <li class="day">Morgen</li>
-              </ul>
-            </li>
-            <li>
-              <ul class="task">
-                <li class="taskObjektiv">Arbeiten</li>
-                <li class="day">20.09</li>
-              </ul>
-            </li>
+      <main>
+        <div id="toToday">
+          <p class="heading">Heutige Aufgaben</p>
+          <ul id="todayList">
+            <li class="todayTask">Einkaufen</li>
+            <li class="todayTask">Katze füttern</li>
           </ul>
         </div>
+
+        <div id="toDo">
+          <h3>Zukünftig</h3>
+          <hr />
+          <div id="toDoList">
+            <ul id="taskList">
+              <li>
+                <ul class="task">
+                  <li class="taskObjektiv">Wäsche waschen</li>
+                  <li class="day">Morgen</li>
+                </ul>
+              </li>
+              <li>
+                <ul class="task">
+                  <li class="taskObjektiv">Arbeiten</li>
+                  <li class="day">20 August, 2024</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <div id="addTaskScreen" style="display: none">
+      <header>
+        <h2>Neue Aufgabe</h2>
+      </header>
+
+      <div id="newTaskForm">
+        <input type="text" name="task" id="taskInp" placeholder="Aufgebe..." />
+        <input type="date" name="date" id="dateInp" />
+        <input type="button" id="addNewTask" value="Hinzufügen" />
       </div>
-    </main>
+    </div>
 
     <footer>
       <div id="bottomControl">
-        <button id="home"><img src="img/home.svg" alt="" /></button>
-        <button id="addTask"><img src="img/add.svg" alt="" /></button>
-        <button id="dark"><img src="img/dark.svg" alt="" /></button>
+        <button id="homeBtn">
+          <img src="img/home.svg" alt="" />
+        </button>
+        <button id="addTaskBtn">
+          <img src="img/add.svg" alt="" />
+        </button>
+        <button id="styleBtn">
+          <img id="styleImg" src="img/dark.svg" alt="" />
+        </button>
       </div>
 
-      <!--       <a
-        href="https://www.freepik.com/free-vector/flat-design-mountain-landscape_20008666.htm#page=2&query=landscape%20background&position=1&from_view=keyword&track=ais_user&uuid=e93b2894-ce54-4666-9ff7-ddfbbb40b37a"
-        >Image by freepik</a
-      > -->
+      <!--<a href="https://www.freepik.com/free-vector/flat-design-mountain-landscape_20008666.htm#page=2&query=landscape%20background&position=1&from_view=keyword&track=ais_user&uuid=e93b2894-ce54-4666-9ff7-ddfbbb40b37a"
+        >Image by freepik</a> -->
     </footer>
 
     <script src="script.js"></script>
+    <script src="tasks.js"></script>
   </body>
 </html>
