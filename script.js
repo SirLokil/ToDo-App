@@ -38,22 +38,41 @@ function getMonthName(numMonth) {
   }
 }
 
-let backgroundSwitch = true;
+let backgroundSwitch = false;
 
 const homeScreen = document.getElementById("homeScreen");
 const taskScreen = document.getElementById("addTaskScreen");
+let todayTasks = document.getElementsByClassName("todayTask");
+
+let currentPage = "home";
 
 document.getElementById("homeBtn").addEventListener("click", () => {
-  homeScreen.style.display = "flex";
-  taskScreen.style.display = "none";
+  toHome();
 });
 
 document.getElementById("addTaskBtn").addEventListener("click", () => {
-  homeScreen.style.display = "none";
-  taskScreen.style.display = "block";
+  if (currentPage === "home") {
+    toNewTask();
+  } else {
+    toHome();
+  }
 });
 
+function toHome() {
+  homeScreen.style.display = "flex";
+  taskScreen.style.display = "none";
+  currentPage = "home";
+}
+
+function toNewTask() {
+  homeScreen.style.display = "none";
+  taskScreen.style.display = "block";
+  currentPage = "task";
+}
+
 document.getElementById("styleBtn").addEventListener("click", () => {
+  backgroundSwitch = !backgroundSwitch;
+
   let backgroundImage = backgroundSwitch
     ? "url(img/background.svg)"
     : "url(img/background.jpg)";
@@ -63,12 +82,24 @@ document.getElementById("styleBtn").addEventListener("click", () => {
 
   document.getElementById("styleImg").src = styleIcon;
 
-  let todayTasks = document.getElementsByClassName("todayTask");
+  todayColor();
+});
 
+function todayColor() {
   let textColor = backgroundSwitch ? "white" : "rgb(79, 79, 79)";
+
+  console.log(todayTasks);
 
   for (let i = 0; i < todayTasks.length; i++)
     todayTasks[i].style.color = textColor;
+}
 
-  backgroundSwitch = !backgroundSwitch;
-});
+for (let i = 0; i < todayTasks.length; i++) {
+  todayTasks[i].addEventListener("click", (e) => {
+    if (e.target.attributes.class.value.split(" ").includes("complete")) {
+      e.target.classList.remove("complete");
+    } else {
+      e.target.classList.add("complete");
+    }
+  });
+}

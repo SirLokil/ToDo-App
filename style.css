@@ -1,13 +1,14 @@
 * {
   margin: 0;
   padding: 0;
+  scrollbar-width: none;
 }
 
 body {
   background-image: url(img/background.jpg);
   background-repeat: no-repeat;
-  background-size: 1300px auto;
-  background-position-x: -500px;
+  background-size: 420% auto;
+  background-position-x: 55%;
   height: 100vh;
   display: grid;
   grid-template-rows: auto 70px;
@@ -50,10 +51,6 @@ header h2 {
   transition: all 0.2s;
 }
 
-ul {
-  list-style-type: circle;
-}
-
 /* homeScreen - taskToday */
 
 #homeScreen main {
@@ -67,11 +64,11 @@ ul {
   margin: 5px auto 5px;
   width: 325px;
   height: fit-content;
+  overflow: hidden;
   padding: 15px;
   background-color: rgba(127, 127, 127, 0.3);
   backdrop-filter: blur(6px);
   border-radius: 10px;
-  transition: scale, backdrop-filter 0.2s, 0.1s;
   box-shadow: 0 0 1px black;
 }
 
@@ -85,9 +82,9 @@ ul {
 #homeScreen main #toToday ul {
   max-height: 300px;
   list-style-position: inside;
-  overflow: visible;
   overflow-y: scroll;
   width: 100%;
+  list-style-type: circle;
   font-family: "LXGW WenKai TC", cursive;
   font-weight: 400;
   font-style: normal;
@@ -95,12 +92,18 @@ ul {
 
 #homeScreen main #toToday ul li {
   color: rgb(79, 79, 79);
-  margin: 10px;
+  user-select: none;
+  padding: 5px;
+  transition: background-color 0.2s;
+  border-radius: 5px;
 }
 
-#homeScreen main #toToday:active {
-  scale: 1.02;
-  backdrop-filter: blur(12px);
+#homeScreen main #toToday ul .complete {
+  text-decoration: line-through;
+}
+
+#homeScreen main #toToday ul li:hover {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 /* homeScreen - otherTask */
@@ -119,11 +122,11 @@ ul {
 
 #homeScreen main #toDo #toDoList {
   max-height: 150px;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 #homeScreen main #toDo #toDoList ul .task {
-  background-color: rgba(228, 228, 228, 0.3);
+  background-color: rgba(179, 179, 179, 0.3);
   backdrop-filter: blur(6px);
   border-radius: 10px;
   margin: 5px auto;
@@ -141,12 +144,12 @@ ul {
 
 .taskObjektiv {
   text-shadow: 0 0 1px black;
-  font-size: 1.1em;
+  font-size: 1.2em;
 }
 
 .day {
   margin-top: 5px;
-  font-size: 0.9em;
+  font-size: 0.8em;
 }
 
 /* /homeScreen */
@@ -205,10 +208,6 @@ footer #bottomControl button {
   border: none;
 }
 
-footer #bottomControl button svg {
-  transition: fill 0.1s;
-}
-
 footer #bottomControl button:active img {
   scale: 1.1;
 }
@@ -220,5 +219,38 @@ footer #bottomControl button:active img {
     background-size: cover;
     grid-template-rows: auto 120px;
     grid-gap: 50px;
+  }
+
+  header {
+    font-size: 1.4em;
+  }
+
+  #homeScreen main #toDo h3 {
+    font-size: 1.8em;
+  }
+
+  #homeScreen main #toDo #toDoList {
+    max-height: 250px;
+  }
+
+  #homeScreen main #toDo #toDoList ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    max-height: 250px;
+  }
+
+  #homeScreen main #toDo #toDoList ul .task {
+    display: block;
+    margin: 10px;
+    font-size: 1.4em;
+    padding: 15px 10px;
+    width: 650px;
+    height: 75px;
+  }
+
+  footer #bottomControl button img {
+    scale: 1.4;
   }
 }

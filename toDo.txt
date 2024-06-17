@@ -1,4 +1,1 @@
-- Als erledigt makieren können
-- Anzahl der anzeigen je nach bilschirmgröße begrenzen
-- dazu: Heütige aufgaben beim Click größer und scrollbar 
-- Beim klicken auf die Task bearbeiten usw.
+- ?Beim klicken auf die Task bearbeiten usw.?

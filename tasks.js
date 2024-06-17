@@ -1,8 +1,35 @@
+class newTask {
+  constructor(task, date) {
+    this.task = task;
+    this.date = date;
+  }
+  complete(completed) {}
+}
+
+function createElement(type, className) {
+  let element = document.createElement(type);
+  if (className) {
+    element.classList.add(className);
+  }
+  return element;
+}
+
+function createLi(text, className) {
+  let li = createElement("li", className);
+  li.innerText = text;
+
+  return li;
+}
+
+function createUl(className) {
+  let ul = createElement("ul", className);
+
+  return ul;
+}
+
 document.getElementById("addNewTask").addEventListener("click", () => {
   const taskInp = document.getElementById("taskInp");
   const dateInp = document.getElementById("dateInp");
-
-  const task = document.createElement("li");
 
   let today = new Date();
   let taskDate = new Date(dateInp.value);
@@ -10,26 +37,20 @@ document.getElementById("addNewTask").addEventListener("click", () => {
   if (isToday(taskDate)) {
     const todayList = document.getElementById("todayList");
 
-    task.className = "todayTask";
-    task.innerText = taskInp.value;
+    const task = createLi(taskInp.value, "todayTask");
 
     todayList.appendChild(task);
+
+    todayColor();
   } else if (taskDate > today) {
-    const addListobjekt = document.createElement("li");
-    const addList = document.createElement("ul");
-    const toDate = document.createElement("li");
     const taskList = document.getElementById("taskList");
 
-    task.className = "taskObjektiv";
-    toDate.className = "day";
-    addList.className = "task";
+    const task = new createLi(taskInp.value, "taskObjektiv");
+    const toDate = new createLi(dateString(taskDate), "day");
+    const addList = new createUl("task");
+    const addListobjekt = new createLi("", "");
 
-    task.innerText = taskInp.value;
     addList.appendChild(task);
-
-    toDate.innerText = `${taskDate.getDate()} ${getMonthName(
-      taskDate.getMonth()
-    )}, ${taskDate.getFullYear()}`;
 
     addList.appendChild(toDate);
 
@@ -37,7 +58,7 @@ document.getElementById("addNewTask").addEventListener("click", () => {
 
     taskList.appendChild(addListobjekt);
   } else if (taskDate < today) {
-    console.log("Liegt in der Vergangenheit oder ist kein datum");
+    console.log("Liegt in der Vergangenheit oder ist kein Datum");
   }
 });
 
@@ -48,4 +69,11 @@ function isToday(date) {
     date.getMonth() == today.getMonth() &&
     date.getFullYear() == today.getFullYear()
   );
+}
+
+function dateString(date) {
+  const string = `${date.getDate()} ${getMonthName(
+    date.getMonth()
+  )}, ${date.getFullYear()}`;
+  return string;
 }
